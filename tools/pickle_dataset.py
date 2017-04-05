@@ -9,6 +9,12 @@ csv_dataset_path = data_set_path+'csv/'
 index_filename = target_jokes + 'index'
 jokes_corpus = target_jokes + 'jokes_corpus'
 
+banned_words = [
+    'sex','black','rape','crap','fuck',
+    'bitch','negro','nigga', 'penis',
+    'vagina','cock', 'pussy', 'virgin'
+]
+
 
 def get_merged_csv_names():
 
@@ -47,8 +53,14 @@ def pickle_csv_dataset(directory_name=csv_dataset_path):
             jokes_list = jokes_list[:,1]
             for each_joke in jokes_list:
                 i += 1
+                is_approved = True
                 if type(each_joke) is str:
-                    new_jokes.append(each_joke)
+                    for each_word in each_joke.split():
+                        if each_word in banned_words:
+                            is_approved = False
+                            break
+                    if is_approved:
+                        new_jokes.append(each_joke)
                 else:
                     print('Jokes Filename: ', each_file_name)
                     print('Joke skipped: ', i)
