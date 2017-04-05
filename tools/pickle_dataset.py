@@ -12,7 +12,8 @@ jokes_corpus = target_jokes + 'jokes_corpus'
 banned_words = [
     'sex','black','rape','crap','fuck',
     'bitch','negro','nigga', 'penis',
-    'vagina','cock', 'pussy', 'virgin'
+    'vagina','cock', 'pussy', 'virgin',
+    'porn','boob','breast','dick'
 ]
 
 
