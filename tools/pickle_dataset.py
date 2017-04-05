@@ -41,11 +41,17 @@ def pickle_csv_dataset(directory_name=csv_dataset_path):
     if len(merge_list) > 0:
         new_jokes = []
         for each_file_name in merge_list:
+            i = 0
             jokes_list = pd.read_csv(csv_dataset_path+each_file_name)
             jokes_list = pd.np.array(jokes_list)
             jokes_list = jokes_list[:,1]
             for each_joke in jokes_list:
-                new_jokes.append(each_joke)
+                i += 1
+                if type(each_joke) is str:
+                    new_jokes.append(each_joke)
+                else:
+                    print('Jokes Filename: ', each_file_name)
+                    print('Joke skipped: ', i)
 
         update_index(merge_list)
         update_jokes_corpus(new_jokes)
