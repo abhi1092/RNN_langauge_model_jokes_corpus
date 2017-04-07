@@ -1,1 +1,1 @@
-# RNN_langauge_model_jokes_corpus
+# RNN_language_model_jokes_corpus
