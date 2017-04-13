@@ -8,6 +8,7 @@ target_jokes = dir_path+'/../target_jokes/'
 csv_dataset_path = data_set_path+'csv/'
 index_filename = target_jokes + 'index'
 jokes_corpus = target_jokes + 'jokes_corpus'
+txt_corpus = target_jokes + 'input.txt'
 
 banned_words = [
     'sex','black','rape','crap','fuck',
@@ -35,6 +36,12 @@ def update_index(merge_list):
 def update_jokes_corpus(new_jokes):
     with open(jokes_corpus, 'ab') as f:
         pickle.dump(new_jokes, f)
+
+
+def add_jokes_txt(new_jokes):
+    with open(txt_corpus, 'a') as f:
+        for each_joke in new_jokes:
+            f.write(each_joke+'\n')
 
 
 def pickle_csv_dataset(directory_name=csv_dataset_path):
@@ -68,6 +75,7 @@ def pickle_csv_dataset(directory_name=csv_dataset_path):
 
         update_index(merge_list)
         update_jokes_corpus(new_jokes)
+        add_jokes_txt(new_jokes)
 
 """
 MAIN PROGRAM STARTS HERE

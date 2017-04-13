@@ -1,0 +1,6 @@
+coverage
+nose
+pandas
+tensorflow
+scipy
+numpy; python_version >= '3.5'
