@@ -1,4 +1,5 @@
 # Jokes Predictor
+[![Build Status](https://travis-ci.org/naveendennis/Jokes-Predictor.svg?branch=master)](https://travis-ci.org/naveendennis/Jokes-Predictor)
 
 ## Objective
 
