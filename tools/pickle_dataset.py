@@ -4,7 +4,7 @@ import pickle
 import os.path
 dir_path = os.path.dirname(os.path.realpath(__file__))
 data_set_path = dir_path + '/../dataset/'
-target_jokes = dir_path+'/../target_jokes/'
+target_jokes = dir_path+'/../word_rnn/data/'
 csv_dataset_path = data_set_path+'csv/'
 index_filename = target_jokes + 'index'
 jokes_corpus = target_jokes + 'jokes_corpus'
