@@ -12,6 +12,7 @@ from model import Model
 
 def main():
     parser = argparse.ArgumentParser()
+
     parser.add_argument('--data_dir', type=str, default='./data/',
                        help='data directory containing input.txt')
     parser.add_argument('--log_dir', type=str, default='logs',
@@ -30,7 +31,7 @@ def main():
                        help='RNN sequence length')
     parser.add_argument('--num_epochs', type=int, default=200,
                        help='number of epochs')
-    parser.add_argument('--save_every', type=int, default=100000,
+    parser.add_argument('--save_every', type=int, default=10000,
                        help='save frequency')
     parser.add_argument('--grad_clip', type=float, default=5.,
                        help='clip gradients at this value')
