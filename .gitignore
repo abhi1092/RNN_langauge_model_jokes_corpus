@@ -1,4 +1,4 @@
 .idea
 target_jokes/
 .ipynb_checkpoints/
-nguage_Model/__pycache__/
+*/__pycache__/
