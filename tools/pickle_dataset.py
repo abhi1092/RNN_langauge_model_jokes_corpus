@@ -3,12 +3,12 @@ import pickle
 
 import os.path
 dir_path = os.path.dirname(os.path.realpath(__file__))
-data_set_path = dir_path + '/../dataset/'
-target_jokes = dir_path+'/../word_rnn/data/'
-csv_dataset_path = data_set_path+'csv/'
-index_filename = target_jokes + 'index'
-jokes_corpus = target_jokes + 'jokes_corpus'
-txt_corpus = target_jokes + 'input.txt'
+data_set_path = os.path.join(dir_path, '..', 'dataset')
+target_jokes = os.path.join(dir_path, '..', 'word_rnn', 'data')
+csv_dataset_path = os.path.join(data_set_path, 'csv')
+index_filename = os.path.join(target_jokes, 'index')
+jokes_corpus = os.path.join(target_jokes , 'jokes_corpus')
+txt_corpus = os.path.join(target_jokes , 'input.txt')
 
 banned_words = [
     'sex','black','rape','crap','fuck',
