@@ -1,6 +1,7 @@
 import tensorflow as tf
 from tensorflow.contrib import rnn
 from tensorflow.contrib import legacy_seq2seq
+from cellfactory import CellFactory
 
 import numpy as np
 
@@ -12,16 +13,7 @@ class Model():
             args.batch_size = 1
             args.seq_length = 1
 
-        if args.model == 'rnn':
-            cell_fn = rnn.BasicRNNCell
-        elif args.model == 'gru':
-            cell_fn = rnn.GRUCell
-        elif args.model == 'lstm':
-            cell_fn = rnn.BasicLSTMCell
-        elif args.model == 'nas':
-            cell_fn = rnn.NASCell
-        else:
-            raise Exception("model type not supported: {}".format(args.model))
+        cell_fn = CellFactory.get_cell_instance(instance_type=args.model)
 
         cells = []
         for _ in range(args.num_layers):
