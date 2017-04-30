@@ -14,3 +14,4 @@ class CellFactory:
             cell_fn = rnn.NASCell
         else:
             raise Exception("model type not supported: {}".format(instance_type))
+        return  cell_fn
