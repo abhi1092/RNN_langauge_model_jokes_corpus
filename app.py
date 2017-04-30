@@ -1,5 +1,5 @@
 from tkinter import *
-from char_rnn.model import Model
+from model import Model
 import os.path
 from six.moves import cPickle
 import tensorflow as tf
@@ -7,9 +7,9 @@ from six import text_type
 import string
 
 
-def sample(save_dir, prime_arg):
+def sample(save_dir, prime_arg, sample_freq, n):
     if not save_dir:
-        save_dir = os.path.join(dir_path,'char_rnn', 'save')
+        save_dir = os.path.join(dir_path, 'save')
     sample_freq = 1
     n=500
     prime_arg = text_type(prime_arg)
@@ -33,7 +33,7 @@ def sample(save_dir, prime_arg):
     return ret
 
 def show_entry_fields():
-    output.insert(INSERT, sample(save_dir=save_path.get(), prime_arg=prime.get()))
+    output.insert(INSERT, sample(save_dir=save_path.get(), prime_arg=prime.get(), sample_freq.get(), n.get()))
     output.config(state = DISABLED)
 
 if __name__ == '__main__':
@@ -41,15 +41,21 @@ if __name__ == '__main__':
     master = Tk()
     Label(master, text="Phrase").grid(row=0)
     Label(master, text="Save_path").grid(row=1)
-    Label(master, text="Output").grid(row=2)
+    Label(master, text="Output").grid(row=4)
+	Label(master, text ="Temperature").grid(row=2)
+	Label(master, text="Number of Characters").grid(row=3)
 
     prime = Entry(master)
     output = Text(master, height=10)
     save_path = Entry(master)
+	temperature = Entry(master)
+	sample_f = Entry(master)
 
     prime.grid(row=0, column=1)
     save_path.grid(row=1, column=1)
-    output.grid(row=2, column=1)
+	temperature.grid(row=1, column=1)
+	sample.grid(row=1, column=1)
+    output.grid(row=4, column=1)
 
     Button(master, text='Quit', command=master.quit).grid(row=3, column=0, sticky=W, pady=4)
     Button(master, text='Show', command=show_entry_fields).grid(row=3, column=1, sticky=W, pady=4)
